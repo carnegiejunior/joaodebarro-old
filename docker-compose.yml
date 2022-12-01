@@ -1,10 +1,11 @@
 services:
   postgres:
-    container_name: postgres
+    container_name: joaodebarro_postgres
     image: postgres
     environment:
       POSTGRES_USER: joaodebarro
       POSTGRES_PASSWORD: joaodebarro
+      POSTGRES_DB: joaodebarro_db
       PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres
@@ -15,7 +16,7 @@ services:
     restart: unless-stopped
 
   pgadmin:
-    container_name: pgadmin
+    container_name: joaodebarro_pgadmin
     image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
